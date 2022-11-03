@@ -1,38 +1,142 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  margin: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  background-color: #ccd7ec9f;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navbar {
+  background-color: rgb(96, 96, 129);
+  text-decoration: none;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+}
+.navbar h1 {
+  color: white;
+  padding: 0 10px;
+  margin-left: 50px;
+}
+.navbar ul {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 50px;
+  align-items: center;
+}
+.navbar li {
+  list-style-type: none;
+  margin: 0 20px;
+}
+.navbar a {
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+.content {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 20px;
+}
+.content h1 {
+  margin: 20px;
+}
+.content .intro {
+  text-align: center;
+  width: 80%;
+  font-size: large;
+}
+
+.content .intro .text {
+  margin: 20px 0;
+}
+
+.post {
+  width: 80%;
+  background-color: #ccd7ec9f;
+  margin: 50px auto 50px auto;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+    rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+  min-height: 50vh;
+}
+.post h1 {
+  color: rgb(77, 82, 122);
+  margin: 20px 20px 0 20px;
+  font-size: 2.3em;
+}
+.post hr {
+  border-color: rgba(96, 96, 129, 0.308);
+  box-shadow: none;
+  margin: 10px 0;
+}
+.post header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.post .info {
+  font-size: 12px;
+  color: rgb(68, 73, 87);
+}
+.post .content {
+  margin-top: 40px;
+}
+.comments {
+  background-color: #ccd7ec9f;
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+    rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+  display: flex;
+  flex-direction: column;
+}
+.comments h2 {
+  margin: 40px 20px 10px 40px;
+}
+.comment {
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+    rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+  width: 95%;
+  background-color: #f0f3f88a;
+  border-radius: 10px;
+  margin: 20px 0 20px 40px;
+  padding: 30px;
+}
+
+.comment .created-at {
+  font-size: 10px;
+}
+
+.comment .comment-text {
+  margin-top: 10px;
+}
+
+/* Newst posts */
+.newest-posts {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+/* All posts */
+.all-posts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.all-posts h3 {
+  font-size: 30px;
+  padding: 20px 0;
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
