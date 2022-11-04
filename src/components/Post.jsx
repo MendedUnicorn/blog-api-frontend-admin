@@ -19,11 +19,10 @@ const Post = ({ data }) => {
   return (
     data && (
       <div className={style.card} onClick={handleClick} key={data._id}>
+        {console.log('firstdata', data)}
         <header>
           <h4>{title}</h4>
           <p>
-            {' '}
-            {console.log('first', data)}
             by: {user.first_name} {user.last_name}
           </p>
         </header>

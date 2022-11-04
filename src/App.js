@@ -10,8 +10,11 @@ import {
   Routes,
 } from 'react-router-dom';
 import { Home } from './pages/Home';
+import authService from './services/auth.service';
+import NewPost from './pages/NewPost';
 
 function App() {
+  authService.login('testy69', 'password123');
   return (
     <Router>
       <Routes>
@@ -19,6 +22,7 @@ function App() {
           <Route path='/' element={<Home />}></Route>
           <Route path='/posts' element={<AllPosts />}></Route>
           <Route path='/posts/:id' element={<OnePost />}></Route>
+          <Route path='/posts/new' element={<NewPost />}></Route>
         </Route>
       </Routes>
     </Router>

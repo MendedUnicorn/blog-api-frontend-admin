@@ -54,7 +54,7 @@ const OnePost = () => {
           <h2>There are {comments && comments.length} comments</h2>
           {comments &&
             comments.map((comment) => {
-              return <Comment comment={comment} />;
+              return <Comment comment={comment} key={comment._id} />;
             })}
         </div>
       </div>

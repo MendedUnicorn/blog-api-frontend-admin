@@ -1,0 +1,31 @@
+.postForm {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 50%;
+  margin: 0 auto;
+  justify-content: flex-start;
+  padding: 20px;
+  border: 1px solid black;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.postForm input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 0 0 10px 0;
+}
+
+.postForm button {
+  padding: 8px 20px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 0 auto;
+}
+
+.postForm button:hover {
+  cursor: pointer;
+}
