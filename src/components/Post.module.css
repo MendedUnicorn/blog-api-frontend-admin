@@ -4,13 +4,14 @@
   width: 40%;
   margin: 10px;
   background-color: rgb(251, 251, 255);
-  min-height: 20vh;
+  min-height: 30vh;
   text-align: center;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   min-width: 350px;
+  max-height: 40vh;
 }
 .card:hover {
   cursor: pointer;
