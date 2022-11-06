@@ -12,17 +12,34 @@ import {
 import { Home } from './pages/Home';
 import authService from './services/auth.service';
 import NewPost from './pages/NewPost';
+import { Login } from './pages/Login';
+import { useState } from 'react';
 
 function App() {
-  authService.login('testy69', 'password123');
+  const [userLoggedIn, setUserLoggedIn] = useState(authService.getCurrentUser);
+
+  const handleLogout = () => setUserLoggedIn(false);
+  const handleLogin = () => setUserLoggedIn(true);
+
+  const user = localStorage.getItem('user');
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<Layout />}>
+        <Route
+          path='/'
+          element={
+            <Layout handleLogout={handleLogout} userLoggedIn={userLoggedIn} />
+          }
+        >
           <Route path='/' element={<Home />}></Route>
           <Route path='/posts' element={<AllPosts />}></Route>
           <Route path='/posts/:id' element={<OnePost />}></Route>
           <Route path='/posts/new' element={<NewPost />}></Route>
+          <Route
+            path='/login'
+            element={<Login handleLogin={handleLogin} />}
+          ></Route>
+          {/* <Route path='/posts/:id/comments/:commentid' /> */}
         </Route>
       </Routes>
     </Router>

@@ -55,3 +55,18 @@
   text-align: start;
   padding-left: 10px;
 }
+
+.published {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.published input {
+  margin: 0 10px;
+}
+
+.edit {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}

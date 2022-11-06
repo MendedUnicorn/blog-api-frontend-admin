@@ -1,42 +1,38 @@
-import axios from 'axios';
 const API_URL = 'http://localhost:3000/auth/';
 
 class AuthService {
-  login(username, password) {
-    fetch(API_URL + 'login', {
-      method: 'POST',
-      mode: 'cors',
-      headers: new Headers({
-        Accept: 'application/json, text/plain, */*',
-        'Content-Type': 'application/json; charset=utf-8',
-      }),
-      body: JSON.stringify({ username, password }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        if (data.token) {
-          localStorage.setItem('user', JSON.stringify(data));
+  login(user, password) {
+    const data = user.includes('@')
+      ? {
+          email: user,
+          password,
         }
+      : { username: user, password };
+    return fetch('http://localhost:3000/auth/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      .then((results) => {
+        //console.log('res', results.json());
+        return results.json();
       })
-      .catch((err) => console.log('error', err));
+      .then((data) => {
+        // console.log(data);
+        if (data.token) {
+          // console.log('set token', data.token);
+          localStorage.setItem('user', JSON.stringify(data));
+          return data;
+        }
+        console.log('going to return');
+        return data;
+      })
+      .catch((err) => console.log('error', err))
+      .finally((d) => console.log('finally', d));
   }
 
-  // login(username, password) {
-  //   return axios
-  //     .post(API_URL + 'login', {
-  //       username,
-  //       password,
-  //     })
-  //     .then((response) => {
-  //       console.log(response.data);
-  //       if (response.data.token) {
-  //         localStorage.setItem('user', JSON.stringify(response.data.token));
-  //       }
-
-  //       return response.data;
-  //     });
-  // }
   logout() {
     localStorage.removeItem('user');
   }

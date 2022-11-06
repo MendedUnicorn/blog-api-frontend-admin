@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useFetch } from '../hooks/useFetch';
 import style from './CommentForm.module.css';
 
-export const CommentForm = ({ updateParent }) => {
+export const CommentForm = ({ comments, setComments }) => {
   const [name, setName] = useState('');
   const [text, setText] = useState('');
   const { id } = useParams();
@@ -20,11 +20,13 @@ export const CommentForm = ({ updateParent }) => {
     fetch(`http://localhost:3000/posts/${id}/comments`, reqOpt)
       .then((response) => response.json())
       .then((data) => {
-        console.log('new data ', data);
-        updateParent();
+        console.log('data', data);
+        setComments([...comments, data]);
+        console.log(comments);
       })
       .catch((err) => console.log(err));
-    console.log(updateParent);
+    setName('');
+    setText('');
   };
   const toggleCommentForm = (e) => {
     e.preventDefault();
@@ -37,14 +39,6 @@ export const CommentForm = ({ updateParent }) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({ name, text }),
-  };
-  const handleOnFocus = (e) => {
-    console.log(e);
-    setShowForm(true);
-  };
-  const handleOnBlur = (e) => {
-    console.log(e);
-    setShowForm(false);
   };
 
   return (

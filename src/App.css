@@ -65,21 +65,28 @@ body {
   box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
     rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
   min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .post h1 {
   color: rgb(77, 82, 122);
   margin: 20px 20px 0 20px;
   font-size: 2.3em;
 }
-.post hr {
+/* .post hr {
   border-color: rgba(96, 96, 129, 0.308);
   box-shadow: none;
   margin: 10px 0;
-}
+  display: block;
+} */
 .post header {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  height: fit-content;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(40, 38, 66, 0.192);
 }
 
 .post .info {
@@ -88,6 +95,9 @@ body {
 }
 .post .content {
   margin-top: 40px;
+  align-self: flex-start;
+  justify-self: flex-start;
+  flex-grow: 1;
 }
 .comments {
   background-color: #ccd7ec9f;

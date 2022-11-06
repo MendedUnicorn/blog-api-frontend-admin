@@ -1,11 +1,14 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import authHeader from '../services/auth-header';
 import style from './PostForm.module.css';
+import { Editor } from '@tinymce/tinymce-react';
 
 export const PostForm = () => {
   const [title, setTitle] = useState('');
   const [text, setText] = useState('');
   const [published, setPublished] = useState(true);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,7 +26,10 @@ export const PostForm = () => {
       }),
     })
       .then((results) => results.json())
-      .then((data) => console.log('posted data', data))
+      .then((data) => {
+        console.log('posted data', data);
+        navigate('/posts');
+      })
       .catch((err) => {
         if (err) console.log(err);
       });
@@ -34,10 +40,40 @@ export const PostForm = () => {
   const handlePublishChange = (e) => {
     setPublished((prev) => !prev);
   };
+  function handleSubmitTiny(e) {
+    e.preventDefault();
+
+    fetch('http://localhost:3000/posts', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        ...authHeader(),
+      },
+      body: JSON.stringify({
+        title: 'TEST WITH TINY',
+        text,
+        user: JSON.parse(localStorage.getItem('user')).user._id,
+        published,
+      }),
+    })
+      .then((results) => results.json())
+      .then((data) => {
+        console.log('posted data', data);
+        navigate('/posts');
+      })
+      .catch((err) => {
+        if (err) console.log(err);
+      });
+  }
 
   return (
-    <div className='container'>
-      <h2>New Post</h2>
+    <div className='container' onClick={console.log(text)}>
+      <Editor
+        apiKey={process.env.REACT_APP_TINY_API_KEY}
+        value={text}
+        onEditorChange={(e) => setText(e)}
+      />
+      {/* <h2>New Post</h2>
       <form className={style.postForm} onSubmit={handleSubmit}>
         <label htmlFor='title'>Title</label>
         <input
@@ -65,7 +101,8 @@ export const PostForm = () => {
           checked={published}
         />
         <button type='submit'>Post</button>
-      </form>
+      </form> */}
+      <button onClick={handleSubmitTiny}>Log editor content</button>
     </div>
   );
 };

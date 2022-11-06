@@ -1,0 +1,80 @@
+.warning {
+  width: 85px;
+  background: inherit;
+  border: 2px solid rgb(223, 146, 4);
+  border-radius: 5px;
+  padding: 8px 14px;
+  margin: 10px 10px 10px 0;
+  color: rgb(223, 146, 4);
+  font-weight: bold;
+
+  background: linear-gradient(
+      to left,
+      rgb(255, 215, 141) 50%,
+      rgb(231, 165, 42) 50%
+    )
+    right;
+  background-size: 201%;
+  transition: 0.2s ease-out;
+}
+
+.warning:hover {
+  background-position: left;
+  border: 2px solid rgb(238, 168, 38);
+  color: white;
+  cursor: pointer;
+}
+
+.danger {
+  width: 85px;
+  background: inherit;
+  border: 2px solid rgb(231, 40, 40);
+  border-radius: 5px;
+  padding: 8px 14px;
+  margin: 10px 10px 10px 0;
+  color: rgb(231, 40, 40);
+  font-weight: bold;
+
+  background: linear-gradient(
+      to left,
+      rgb(255, 168, 168) 50%,
+      rgb(231, 40, 40) 50%
+    )
+    right;
+  background-size: 201%;
+  transition: 0.2s ease-out;
+}
+
+.danger:hover {
+  background-position: left;
+  border: 2px solid rgb(231, 40, 40);
+  color: white;
+  cursor: pointer;
+}
+
+.success {
+  width: 85px;
+  background: inherit;
+  border: 2px solid rgb(57, 163, 31);
+  border-radius: 5px;
+  padding: 8px 14px;
+  margin: 10px 10px 10px 0;
+  color: rgb(231, 40, 40);
+  font-weight: bold;
+
+  background: linear-gradient(
+      to left,
+      rgb(255, 168, 168) 50%,
+      rgb(231, 40, 40) 50%
+    )
+    right;
+  background-size: 201%;
+  transition: 0.2s ease-out;
+}
+
+.success:hover {
+  background-position: left;
+  border: 2px solid rgb(231, 40, 40);
+  color: white;
+  cursor: pointer;
+}

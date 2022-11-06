@@ -1,0 +1,38 @@
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  margin: 50px auto;
+  border: 1px solid black;
+  padding: 20px;
+  background-color: white;
+}
+.loginForm h2 {
+  margin-bottom: 30px;
+}
+
+.loginForm input {
+  padding: 10px;
+  /* border: none; */
+  border-radius: 5px;
+  margin: 10px 0 20px 0;
+  width: 100%;
+}
+
+.loginForm button {
+  padding: 10px;
+  background-color: white;
+}
+.loginForm button:hover {
+  cursor: pointer;
+}
+
+.form-group input,
+label {
+  display: block;
+}
+
+.form-group {
+  width: 80%;
+}

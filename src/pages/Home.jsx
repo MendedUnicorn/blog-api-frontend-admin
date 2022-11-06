@@ -9,7 +9,6 @@ export const Home = () => {
   } = useFetch(`http://localhost:3000/posts/`);
 
   const newestPosts = posts && [...posts].reverse().slice(0, 4);
-
   return (
     <div className='content'>
       <h1>My blog</h1>
@@ -25,7 +24,7 @@ export const Home = () => {
           <div className='newest-posts'>
             {newestPosts &&
               newestPosts.map((post) => {
-                return <Post data={post} key={post._id}></Post>;
+                return <Post post={post} key={post._id}></Post>;
               })}
           </div>
         </div>
